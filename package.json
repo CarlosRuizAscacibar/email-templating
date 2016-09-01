@@ -2,14 +2,16 @@
   "name": "email-templating",
   "version": "1.0.0",
   "description": "Carlos´s email template ecosystem",
-  "main": "index.js",
+  "main": "glup browser-sync",
   "dependencies": {
     "browser-sync": "^2.14.3",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-compile-handlebars": "^0.6.1"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test",
+    "sync": "gulp browser-sync"
   },
   "author": "Carlos Ruiz Ascacíbar",
   "license": "ISC"
