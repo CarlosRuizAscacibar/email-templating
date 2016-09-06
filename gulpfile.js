@@ -3,13 +3,7 @@ var browserSync = require('browser-sync').create();
 var handlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
 // Static server
-gulp.task('browser-sync', function() {
-    browserSync.init({
-        server: {
-            baseDir: "./dist"
-        }
-    });
-});
+
 
 
 gulp.task('hbs', function () {
@@ -18,19 +12,32 @@ gulp.task('hbs', function () {
     },
     options = {
         ignorePartials: true, //ignores the unknown footer2 partial in the handlebars template, defaults to false
-        // partials : {
-        //     footer : '<footer>the end</footer>'
-        // },
-        // batch : ['./src/partials'],
         helpers : {
             capitals : function(str){
                 return str.toUpperCase();
             }
         }
     }
-
     return gulp.src('src/hello.handlebars')
         .pipe(handlebars(templateData, options))
-        .pipe(rename('hello.html'))
-        .pipe(gulp.dest('dist'));
+        .pipe(rename('index.html'))
+        .pipe(gulp.dest('dist'))
 });
+gulp.task('hbs-watch', ['hbs'], function (done) {
+    console.log('hbs-watch')
+    browserSync.reload();
+    done();
+});
+
+gulp.task('serve', ['hbs'], function() {
+    browserSync.init({
+        server: {
+            baseDir: "./dist",
+
+        }
+     });
+    gulp.watch("./src/*", ['hbs-watch']);
+
+});
+
+// gulp.task('serve', ['hbs','browser-sync']);

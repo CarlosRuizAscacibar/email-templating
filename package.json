@@ -13,7 +13,9 @@
   "scripts": {
     "test": "mocha test",
     "sync": "gulp browser-sync",
-    "hbs": "gulp hbs"
+    "hbs": "gulp hbs",
+    "serve": "gulp serve"
+
   },
   "author": "Carlos Ruiz Ascacíbar",
   "license": "ISC"
