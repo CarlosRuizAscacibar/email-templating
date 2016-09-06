@@ -15,6 +15,12 @@ gulp.task('hbs', function () {
         helpers : {
             capitals : function(str){
                 return str.toUpperCase();
+            },
+            noop: function(options) {
+                return options.fn(this);
+            },
+            "table-center-cell": function(options) {
+                return '<table border="1"><tr><td align="center">' + options.fn(this) + '</td></tr></table>';
             }
         }
     }
