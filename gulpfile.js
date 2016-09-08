@@ -8,17 +8,24 @@ var rename = require('gulp-rename');
 
 gulp.task('hbs', function () {
     var templateData = {
-        firstName: 'Kaanon'
+        firstName: 'Kaanon',
+        a:'variable string'
     },
     options = {
         ignorePartials: true, //ignores the unknown footer2 partial in the handlebars template, defaults to false
         helpers : {
             capitals : function(str){
                 return str.toUpperCase();
+            },
+            singleRowCell: function(options){
+              return '<table border="1"><tr><td>' + options.fn(this) + '</table></tr></td>';
+            },
+            boldHelper: function(options){
+              return '<b>' + options.fn(this) + '</b>';
             }
         }
     }
-    return gulp.src('src/hello.handlebars')
+    return gulp.src('email/hello.handlebars')
         .pipe(handlebars(templateData, options))
         .pipe(rename('index.html'))
         .pipe(gulp.dest('dist'))
