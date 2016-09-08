@@ -24,14 +24,14 @@ gulp.task('hbs', function () {
               return '<b>' + options.fn(this) + '</b>';
             }
         }
-    }
+    };
     return gulp.src('email/hello.handlebars')
         .pipe(handlebars(templateData, options))
         .pipe(rename('index.html'))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('dist'));
 });
 gulp.task('hbs-watch', ['hbs'], function (done) {
-    console.log('hbs-watch')
+    console.log('hbs-watch');
     browserSync.reload();
     done();
 });
