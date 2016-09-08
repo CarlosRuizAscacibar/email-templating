@@ -25,7 +25,7 @@ gulp.task('hbs', function () {
             }
         }
     };
-    return gulp.src('email/hello.handlebars')
+    return gulp.src('email/email.handlebars')
         .pipe(handlebars(templateData, options))
         .pipe(rename('index.html'))
         .pipe(gulp.dest('dist'));
@@ -43,7 +43,7 @@ gulp.task('serve', ['hbs'], function() {
 
         }
      });
-    gulp.watch("./src/*", ['hbs-watch']);
+    gulp.watch("./email/*", ['hbs-watch']);
 
 });
 
