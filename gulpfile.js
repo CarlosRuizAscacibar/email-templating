@@ -11,20 +11,7 @@ gulp.task('hbs', function () {
         firstName: 'Kaanon',
         a: 'variable'
     },
-    options = {
-        ignorePartials: true, //ignores the unknown footer2 partial in the handlebars template, defaults to false
-        helpers : {
-            capitals : function(str){
-                return str.toUpperCase();
-            },
-            noop: function(options) {
-                return options.fn(this);
-            },
-            "table-center-cell": function(options) {
-                return '<table border="1"><tr><td align="center">' + options.fn(this) + '</td></tr></table>';
-            }
-        }
-    }
+    options = {}
     return gulp.src('src/hello.handlebars')
         .pipe(handlebars(templateData, options))
         .pipe(rename('index.html'))
