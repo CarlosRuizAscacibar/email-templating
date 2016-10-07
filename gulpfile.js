@@ -2,35 +2,30 @@ var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var handlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
+var fs = require('fs');
+
 // Static server
 
 
 
 gulp.task('hbs', function () {
-    var templateData = {
-        firstName: 'Kaanon',
-        a: 'variable'
-    },
-    options = {}
-    return gulp.src('src/hello.handlebars')
+    var templateData = JSON.parse(fs.readFileSync('email/variables.json'));
+    options = {};
+    return gulp.src('email/hello.handlebars')
         .pipe(handlebars(templateData, options))
         .pipe(rename('index.html'))
         .pipe(gulp.dest('dist'))
 });
-gulp.task('hbs-watch', ['hbs'], function (done) {
-    console.log('hbs-watch')
-    browserSync.reload();
-    done();
-});
 
-gulp.task('serve', ['hbs'], function() {
+
+gulp.task('default', ['hbs'], function() {
     browserSync.init({
         server: {
-            baseDir: "./dist",
+            baseDir: "./dist"
 
         }
      });
-    gulp.watch("./src/*", ['hbs-watch']);
+    gulp.watch(["./email/*"], ['hbs',browserSync.reload]);
 
 });
 
