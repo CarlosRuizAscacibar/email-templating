@@ -5,6 +5,7 @@
   "main": "glup browser-sync",
   "dependencies": {
     "browser-sync": "^2.14.3",
+    "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-compile-handlebars": "^0.6.1",
     "gulp-rename": "^1.2.2"
@@ -15,7 +16,6 @@
     "sync": "gulp browser-sync",
     "hbs": "gulp hbs",
     "serve": "gulp serve"
-
   },
   "author": "Carlos Ruiz Ascacíbar",
   "license": "ISC"
