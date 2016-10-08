@@ -8,5 +8,5 @@ var variablesObject = JSON.parse(fs.readFileSync('email/variables.json','utf8',{
 var versions = getVersions(variablesObject);
 
 versions.forEach(function(version){
-  fs.writeFileSync('html/'  + version.id + '.html', template(version.vars));
+  fs.writeFileSync('dist/'  + version.id + '.html', template(version.vars));
 });
