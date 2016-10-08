@@ -1,3 +1,27 @@
 {
-  "firstName" : "Pepe2"
+  "langs":{
+    "es" : {
+      "saludo":"hola",
+      "pies":{
+        "pieColorAzul":{
+          "texto":"<span style=\"color:blue\">PIE AZUL</span>"
+        },
+        "pieNegro":{
+          "texto":"<span style=\"color:black\">PIE NEGRO</span>"
+        }
+      }
+    },
+    "en" : {
+      "saludo":"hello",
+      "pies":{
+        "pieColorAzul":{
+          "texto":"<span style=\"color:blue\">BLUE FOOTE</span>"
+        },
+        "pieNegro":{
+          "texto":"<span style=\"color:black\">BLACK FOOTER</span>"
+        }
+      }
+    }
+
+  }
 }
