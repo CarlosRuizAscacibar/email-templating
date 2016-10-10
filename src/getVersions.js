@@ -17,16 +17,13 @@ var getVersions = function (obj) {
 
 
       if( typeof  obj[id][vId][p] === 'string'){
-        console.log(p + ' string');
 
         stringProps[p] = obj[id][vId][p];
       }
       if( typeof  obj[id][vId][p] === 'object'){
-        console.log(p + ' object');
 
         var objToPass = {};
         objToPass[p] = obj[id][vId][p];
-        console.log(objToPass);
         getVersions(objToPass).forEach(function(v){
           v.id = vId + '_' +v.id;
           innerVersions.push(v);
@@ -54,7 +51,7 @@ var getVersions = function (obj) {
     }
   });
   return versions;
-}
+};
 module.exports = getVersions;
 // langs.forEach(function(l){
 //   versions.push({
