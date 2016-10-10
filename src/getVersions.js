@@ -38,8 +38,8 @@ var getVersions = function (obj) {
       var mostImportantValues = iv.vars;
       var lessImportantValues = stringProps;
       var result={};
-      Object.keys(lessImportantValues).forEach((key) => result[key] = lessImportantValues[key]);
-      Object.keys(mostImportantValues).forEach((key) => result[key] = mostImportantValues[key]);
+      Object.keys(lessImportantValues).forEach( function(key){ result[key] = lessImportantValues[key];});
+      Object.keys(mostImportantValues).forEach( function(key){ result[key] = mostImportantValues[key];});
 
       iv.vars = result;
     });
