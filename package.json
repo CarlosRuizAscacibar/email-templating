@@ -10,7 +10,10 @@
     "gulp-compile-handlebars": "^0.6.1",
     "gulp-rename": "^1.2.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
+  },
   "scripts": {
     "test": "mocha test",
     "sync": "gulp browser-sync",

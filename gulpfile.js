@@ -11,10 +11,8 @@ var fs = require('fs');
 gulp.task('hbs', function () {
     var templateData = JSON.parse(fs.readFileSync('email/variables.json'));
     options = {};
-    return gulp.src('email/hello.handlebars')
-        .pipe(handlebars(templateData, options))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest('dist'))
+    return gulp.src('email/hello.handlebars');
+
 });
 
 
@@ -28,5 +26,3 @@ gulp.task('default', ['hbs'], function() {
     gulp.watch(["./email/*"], ['hbs',browserSync.reload]);
 
 });
-
-// gulp.task('serve', ['hbs','browser-sync']);
