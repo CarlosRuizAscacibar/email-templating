@@ -46,7 +46,7 @@ var getVersions = function (obj) {
     if(innerVersions.length === 0){
       versions.push({id:vId,vars:stringProps});
     }else{
-      innerVersions.forEach((iv) => versions.push(iv));
+      innerVersions.forEach(function(iv){ versions.push(iv);});
 
     }
   });
